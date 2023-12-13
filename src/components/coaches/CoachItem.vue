@@ -1,36 +1,43 @@
 <template>
-    <div>
-        <li>
-            <h3>{{ fullName }}</h3>
-            <h4>{{ rate }}/hour</h4>
-            <div>
-                <span v-for="area in areas" :key="area">{{ area }}</span>
-            </div>
-            <div class="actions">
-                <router-link :to="coachContactLink">Contact</router-link>
-                <router-link :to="coachDetailLink">View Details</router-link>
-            </div>
-        </li>
-    </div>
+  <div>
+    <li>
+      <h3>{{ fullName }}</h3>
+      <h4>{{ rate }}/hour</h4>
+      <div>
+        <base-badge
+          v-for="area in areas"
+          :key="area"
+          :type="area"
+          :title="area"
+        ></base-badge>
+      </div>
+      <div class="actions">
+        <base-button link mode="outline" :to="coachContactLink"
+          >Contact</base-button
+        >
+        <base-button link :to="coachDetailLink">View Details</base-button>
+      </div>
+    </li>
+  </div>
 </template>
 
 <script>
 //import { computed } from 'vue';
 
-export default{
-    props: ['id','firstName','lastName','rate', 'areas'],
-    computed: {
-        fullName(){
-            return this.firstName + ' ' + this.lastName;
-        },
-        coachContactLink(){
-            return this.$route.path + '/' + this.id + '/contact';
-        },
-        coachDetailLink(){
-            return this.$route.path + '/' + this.id;
-        }
-    }
-}
+export default {
+  props: ["id", "firstName", "lastName", "rate", "areas"],
+  computed: {
+    fullName() {
+      return this.firstName + " " + this.lastName;
+    },
+    coachContactLink() {
+      return this.$route.path + "/" + this.id + "/contact";
+    },
+    coachDetailLink() {
+      return this.$route.path + "/" + this.id;
+    },
+  },
+};
 </script>
 
 <style scoped>
