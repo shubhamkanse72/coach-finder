@@ -58,7 +58,7 @@
             type="checkbox"
             id="backend"
             value="backend"
-            v-model="areas"
+            v-model="areas.val"
             @blur="clearValidity('areas')"
           />
           <label for="frontend">Backend Development</label>
@@ -68,7 +68,7 @@
             type="checkbox"
             id="career"
             value="career"
-            v-model="areas"
+            v-model="areas.val"
             @blur="clearValidity('areas')"
           />
           <label for="frontend">Career Advisory</label>
