@@ -40,7 +40,7 @@ export default {
         return;
       }
       this.$store.dispatch("requests/contactCoach", {
-        coachId: this.$route.id,
+        coachId: this.$route.params.id,
         email: this.email,
         message: this.message,
       });
